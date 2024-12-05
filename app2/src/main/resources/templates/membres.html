@@ -99,13 +99,13 @@
         </thead>
         <tbody>
         <tr th:each="membre : ${membres}">
-            <td th:text="${membre.id}"></td>
-            <td th:text="${membre.nom}"></td>
-            <td th:text="${membre.prenom}"></td>
-            <td th:text="${membre.email}"></td>
-            <td th:text="${membre.typeMembre}"></td>
+            <td th:if="${membre != null}" th:text="${membre.id}"></td>
+            <td th:if="${membre != null}" th:text="${membre.nom}"></td>
+            <td th:if="${membre != null}" th:text="${membre.prenom}"></td>
+            <td th:if="${membre != null}" th:text="${membre.email}"></td>
+            <td th:if="${membre != null}" th:text="${membre.typeMembre}"></td>
             <td class="actions">
-                <a th:href="@{/membre-update/{id}(id=${membre.id})}" class="edit">Modifier</a>
+                <a th:if="${membre != null}" th:href="@{/membre-update/{id}(id=${membre.id})}" class="edit">Modifier</a>
                 <a th:href="@{/membre-delete/{id}(id=${membre.id})}" class="delete">Supprimer</a>
             </td>
         </tr>
