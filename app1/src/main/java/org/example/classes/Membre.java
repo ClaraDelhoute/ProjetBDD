@@ -31,10 +31,10 @@ public class Membre {
     private Groupe groupe;
 
     //Liste des commandes en tant que vendeur
-    @OneToMany(mappedBy = "membreVendeur")
+    @OneToMany(mappedBy = "commandesVentes")
     private List<Commande> commandesVentes;
 
     //Liste des commandes en tant que client
-    @OneToMany(mappedBy = "membreClient")
+    @OneToMany(mappedBy = "commandesAchats")
     private List<Commande> commandesAchats;
 }

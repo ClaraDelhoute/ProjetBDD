@@ -4,9 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import services.MembreService;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -15,22 +14,19 @@ import java.util.List;
 @AllArgsConstructor
 public class Commande {
     @Id
-    private Long id;
-    private Date date;
-    private Double prix;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idCommande;
 
     @ManyToOne
-    @JoinColumn(name="membre_vendeur_id")
-    private Membre membreVendeur;
+    private Membre commandesVentes;
 
     @ManyToOne
-    @JoinColumn(name="membre_client_id")
-    private Membre membreClient;
+    private Membre commandesAchats;
 
+    private LocalDateTime dateCommande;
 
+    @OneToMany(mappedBy = "numeroSerie")
+    private List<Materiel> liste;
 
-    @ManyToMany(mappedBy = "commandes")
-    private List<Materiel> materials;
-
-
+    private Double prixTotal;
 }
