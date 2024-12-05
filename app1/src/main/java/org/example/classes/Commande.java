@@ -25,7 +25,7 @@ public class Commande {
 
     private LocalDateTime dateCommande;
 
-    @OneToMany(mappedBy = "groupe")
+    @OneToMany(mappedBy = "numeroSerie")
     private List<Materiel> liste;
 
     private Double prixTotal;
