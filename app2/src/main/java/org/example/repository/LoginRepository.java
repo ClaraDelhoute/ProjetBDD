@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface LoginRepository extends JpaRepository<Login, Integer> {
-    List<Login> getLoginByLogin(String login);
+    List<Login> getLoginByUsername(String username);
 
-    Login getLoginByLoginAndPassword(String login, String password);
+    Login getLoginByUsernameAndPassword(String username, String password);
 }

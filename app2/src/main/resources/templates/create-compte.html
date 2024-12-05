@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Connexion</title>
+    <title>Créer un compte</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,24 +48,39 @@
         button:hover {
             background-color: #4cae4c;
         }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            text-decoration: none;
+            color: #5cb85c;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>Connexion membre</h1>
-<form action ="isOk" method="post">
-    <input type="hidden" name="_method" value="GET">
+    <h1>Créer un compte</h1>
+    <form action="/addAccount" method="post">
+        <label for="username">Login utilisateur :</label>
+        <input type="text" name="username" id="username">
 
-    <label for="username"> Login utilisateur : </label>
-    <input type="text" name="username" id="username">
+        <label for="password">Mot de passe :</label>
+        <input type="password" name="password" id="password">
 
-    <label for="password"> Mot de passe : </label>
-    <input type="password" name="password" id="password">
+        <label for="confirmPassword">Confirmer mot de passe :</label>
+        <input type="password" name="confirmPassword" id="confirmPassword">
 
-    <button type="submit">Connexion</button>
+        <button type="submit">Connexion</button>
 
-    <a href="/createAccount">Pas de compte ? Inscrivez-vous !</a>
-</form>
+        <a href="/add-compte">Pas de compte ? Inscrivez-vous !</a>
+    </form>
+    <div class="back-link">
+        <a href="/connexion">Vous avez déjà un compte ? Connectez-vous</a>
+    </div>
 </div>
 </body>
 </html>
