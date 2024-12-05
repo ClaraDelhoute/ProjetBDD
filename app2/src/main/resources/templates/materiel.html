@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .message {
+            text-align: center;
+            color: #ff0000;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Ajouter un matériel</h1>
+        <form action="add-materiel" method="post">
+            <label for="numero">Numéro de série </label>
+            <input type="text" id="numero" name="numero" required placeholder="Ex : A15B">
+
+            <label></label>
+            <input type="text">
+
+            <label></label>
+            <input type="text">
+
+            <label for="groupe"> Groupe : </label>
+            <select id="groupe" name="groupeId">
+                <option th:each="groupe : ${groupes}"
+                        th:value="${groupe.numero}"
+                        th:text="${groupe.nom}">
+                </option>
+            </select>
+        <button type="submit">Ajouter le materiel</button>
+        </form>
+</div>
+</body>
+</html>
