@@ -13,7 +13,9 @@ import services.MembreService;
 import services.MembreServiceImpl;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 public class MembreController {
@@ -40,17 +42,18 @@ public class MembreController {
     @GetMapping("/membres")
     public String membres(Model model) {
         List<Membre> membres = membreService.getAllMembre();
+        if (membres != null) {
+            membres = membres.stream().filter(Objects::nonNull).collect(Collectors.toList());
+        }
         model.addAttribute("membres", membres);
         return "membres";
     }
 
     @GetMapping("/membre-update/{id}")
     public String getMembreUpdate(@PathVariable("id") Long id, Model model) {
-        List<Groupe> groupes = groupeService.getAllGroupes();
         Membre membre = membreService.getMembreById(id);
-        if(membre != null && !CollectionUtils.isEmpty(groupes)) {
+        if(membre != null) {
             model.addAttribute("membre", membre);
-            model.addAttribute("groupes", groupes);
         }
         return  "membre-update";
     }

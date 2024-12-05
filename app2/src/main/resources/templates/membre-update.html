@@ -237,8 +237,7 @@
 </header>
   <!-- Reprendre le formulaire pour création membre-->
   <h2>Modifier un Membre</h2>
-  <form th:action="@{'/membre-update-go/' + ${membre.id}}" method="POST">
-    <input type="hidden" name="_method" value="PUT">
+    <form th:if="${membre != null}" th:action="@{'/membre-update-go/' + ${membre.id}}" method="POST"><input type="hidden" name="_method" value="PUT">
     <label for="nom">Nom :</label>
     <input type="text" id="nom" name="nom" required placeholder="Nom du membre" th:value="${membre.nom}">
 
