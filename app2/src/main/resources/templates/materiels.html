@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <title>Créer un Groupe</title>
+    <title>Liste du materiel</title>
 </head>
 <style>
 
@@ -226,6 +226,21 @@
     .add-group:hover {
         background-color: #4cae4c;
     }
+
+    .add-material {
+        display: block;
+        width: 200px;
+        margin: 20px auto;
+        text-align: center;
+        padding: 10px;
+        background-color: #5cb85c;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .add-material:hover {
+        background-color: #4cae4c;
+    }
 </style>
 <body>
 <header id="navbar-container">
@@ -270,30 +285,40 @@
     </nav>
 </header>
 <div class="container">
-    <h1>Créer un Groupe</h1>
-    <form action="/groupe-add" method="post">
-        <label for="numero">Numéro du Groupe</label>
-        <input type="text" id="numero" name="numero" required placeholder="Ex: G123">
+    <h2>Liste du materiel</h2>
 
-        <label for="nom">Nom du Groupe</label>
-        <input type="text" id="nom" name="nom" required placeholder="Nom du Groupe">
+    <!-- Affichage du message de confirmation si disponible -->
+    <div class="message">
+        <p th:text="${message}"></p>
+    </div>
 
-        <label for="ville">Ville</label>
-        <input type="text" id="ville" name="ville" required placeholder="Ville">
+    <table>
+        <thead>
+        <tr>
+            <th>Numero de serie</th>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Type</th>
+            <th>Prix</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Boucle pour afficher tous les materiels -->
+        <tr th:each="materiel : ${materiels}">
+            <td th:text="${materiel.numero}"></td>
+            <td th:text="${materiel.nom}"></td>
+            <td th:text="${materiel.ville}"></td>
+            <td th:text="${materiel.codePostal}"></td>
+            <td class="actions">
+                <!-- Actions : Modifier et Supprimer -->
+                <a th:href="@{/materiel-update/{id}(id=${materiel.numero})}" class="edit">Modifier</a>
+                <a th:href="@{/materiel-delete/{id}(id=${materiel.numero})}" class="delete">Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
-        <label for="codePostal">Code Postal</label>
-        <input type="number" id="codePostal" name="codePostal" required placeholder="Ex: 75001">
-
-        <!--<label for="materiel">Matériel Associé</label>
-        <select id="materiel" name="materiel">
-            <option value="">-- Sélectionnez un matériel --</option>
-            <option value="Materiel1">Matériel 1</option>
-            <option value="Materiel2">Matériel 2</option>
-            <option value="Materiel3">Matériel 3</option>
-        </select> --> <!-- Création d'abord du groupe -->
-
-        <button type="submit">Créer Groupe</button>
-    </form>
+    <a href="/materiel" class="add-material">Ajouter un materiel</a>
 </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package services;
 
+import io.micrometer.observation.annotation.Observed;
 import org.example.classes.Membre;
 import org.example.repository.MembreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,11 @@ public class MembreServiceImpl implements MembreService {
     @Override
     public Membre getMembreByNom(String nom) {
         return  membreRepository.getMembreByNom(nom);
+    }
+
+    @Override
+    public Membre getMembreByNomAndPassword(String nom,String password){
+        return membreRepository.getMembreByNomAndPassword(nom,password);
     }
 
 

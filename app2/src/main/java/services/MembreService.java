@@ -11,4 +11,5 @@ public interface MembreService {
     void updateMembre(Membre membre);
     void deleteMembre(Membre membre);
     Membre getMembreByNom(String nom);
+    Membre getMembreByNomAndPassword(String nom, String password);
 }

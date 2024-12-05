@@ -1,23 +1,22 @@
 package org.example.controller;
 
 import io.micrometer.common.util.StringUtils;
-import jakarta.persistence.Entity;
-import org.example.classes.Login;
+import org.example.classes.Membre;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import services.LoginService;
+import services.MembreService;
 
 @Controller
 public class Home {
 
+
     @Autowired
-    LoginService loginService;
+    private MembreService membreService;
 
     @GetMapping("/")
     public String connexion() {
@@ -25,8 +24,8 @@ public class Home {
     }
 
     @PostMapping("/isOk")
-    public String isOk(@ModelAttribute Login login, Model model) {
-        Login user = loginService.getLoginByUsernameAndPassword(login.getUsername(), login.getPassword());
+    public String isOk(@RequestParam("username") String username,@RequestParam("password")String password,Model model) {
+        Membre user = membreService.getMembreByNomAndPassword(username, password);
         if(user != null) {
             model.addAttribute("user", user);
             return "index";
@@ -42,10 +41,10 @@ public class Home {
     }
 
     @PostMapping("/addAccount")
-    public String addAccount(@ModelAttribute Login login, Model model) {
-        if (StringUtils.isNotBlank(login.getUsername()) && StringUtils.isNotBlank(login.getPassword())) {
-            if (StringUtils.isNotBlank(login.getConfirmPassword()) && login.getPassword().equals(login.getConfirmPassword())) {
-                loginService.saveLogin(login);
+    public String addAccount(@ModelAttribute Membre membre, Model model) {
+        if (StringUtils.isNotBlank(membre.getNom()) && StringUtils.isNotBlank(membre.getPassword())) {
+            if (StringUtils.isNotBlank(membre.getConfirmPassword()) && membre.getPassword().equals(membre.getConfirmPassword())) {
+                membreService.saveMembre(membre);
                 return "connexion";
             } else {
                 model.addAttribute("error", "Passwords do not match");

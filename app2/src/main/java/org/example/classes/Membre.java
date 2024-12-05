@@ -20,6 +20,9 @@ public class Membre {
     private String prenom;
     private String adresse;
     private String ville;
+    private String login;
+    private String password;
+    private String confirmPassword;
     @Column(length =  5)
     private Integer codePostal;
     @Column(nullable = false,unique = true)

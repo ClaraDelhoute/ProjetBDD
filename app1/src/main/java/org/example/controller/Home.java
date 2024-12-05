@@ -1,21 +1,20 @@
 package org.example.controller;
 
-import jakarta.persistence.Entity;
-import org.example.classes.Login;
+import org.example.classes.Membre;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import services.LoginService;
+import services.MembreService;
 
 @Controller
 public class Home {
 
     @Autowired
     LoginService loginService;
+    @Autowired
+    private MembreService membreService;
 
     @GetMapping("/")
     public String connexion() {
@@ -23,8 +22,8 @@ public class Home {
     }
 
     @GetMapping("/isOk")
-    public String isOk(@ModelAttribute Login login, Model model) {
-        Login user = loginService.getLoginByloginAndPassword(login.getLogin(), login.getPassword());
+    public String isOk(@ModelAttribute Membre membre, Model model) {
+        Membre user = membreService.getMembreByNomAndPassword(membre.getNom(),membre.getPassword);
         if(user != null) {
             model.addAttribute("user", user);
             return "index";
