@@ -17,9 +17,9 @@ import java.util.Optional;
 public class GroupeController {
 
     @Autowired
-    private GroupeService groupeService;
+    GroupeService groupeService;
     @Autowired
-    private MaterielService materielService;
+    MaterielService materielService;
 
     @GetMapping("/groupe")
     public String groupe(Model model) {
