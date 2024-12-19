@@ -112,11 +112,6 @@
         top: 120%;
     }
 
-    .profile a {
-        display: flex;
-        align-items: center;
-        font-size: 1.2rem;
-    }
 
     body {
         font-family: Arial, sans-serif;
@@ -226,6 +221,12 @@
     .add-group:hover {
         background-color: #4cae4c;
     }
+
+    .profile a{
+        align-items: center;
+        font-size: 0.9rem;
+        text-align: center;
+    }
 </style>
 <body>
 <header id="navbar-container">
@@ -258,13 +259,7 @@
                 </ul>
             </li>
             <li class="nav-item profile">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-user-circle"></i>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="/profil">Mon Profil</a></li>
-                    <li><a href="#logout">Se Déconnecter</a></li>
-                </ul>
+                <a class="nav-link" href="#logout">Se Déconnecter</a>
             </li>
         </ul>
     </nav>
