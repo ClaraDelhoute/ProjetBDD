@@ -147,7 +147,6 @@
             <th>Date</th>
             <th>Liste</th>
             <th>Prix Total</th>
-            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -159,18 +158,10 @@
             <td th:text="${#temporals.format(commande.date, 'dd/MM/yyyy')}"></td>
             <td th:text="${commande.liste}"></td>
             <td th:text="${commande.prixTotal}"></td>
-            <td class="actions">
-                <a th:href="@{/commande-update/{id}(id=${commande.idCommande})}" class="edit">Modifier</a>
-                <a th:href="@{/commande-delete/{id}(id=${commande.idCommande})}" class="delete"
-                   onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette commande ?');">
-                    Supprimer
-                </a>
-            </td>
         </tr>
         </tbody>
     </table>
 
-    <a href="/commande-add" class="add-commande">Ajouter une Commande</a>
 </div>
 
 </body>
