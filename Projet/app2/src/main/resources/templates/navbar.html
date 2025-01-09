@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="navbar">
+<header id="navbar-container">
+  <nav class="navbar">
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="/Home" class="nav-link home">
+          <i class="fas fa-home"></i> Accueil
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link">Membres <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="/membre">Ajouter un membre</a></li>
+          <li><a href="/membres">Liste des membres</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link">Groupes <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="/groupe">Ajouter un groupe</a></li>
+          <li><a href="/groupes">Liste des groupes</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link">Matériel <i class="fas fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="/materiel">Ajouter un matériel</a></li>
+          <li><a href="/materiels">Liste du matériel</a></li>
+        </ul>
+      </li>
+      <li class ="nav-item"> <a href="/commande" class="nav-link" >Passer commande </a> </li>
+      <li class="nav-item profile">
+        <a class="nav-link" href="#logout">Se Déconnecter</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+</div>

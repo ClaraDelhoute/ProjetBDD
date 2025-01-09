@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Commandes</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container mt-5">
+  <h2>Liste des Commandes</h2>
+
+  <form action="/commandes" method="GET" class="mb-4">
+    <div class="form-row">
+      <div class="col-md-3">
+        <label for="dateDebut">Date de début</label>
+        <input type="date" class="form-control" id="dateDebut" name="dateDebut">
+      </div>
+      <div class="col-md-3">
+        <label for="dateFin">Date de fin</label>
+        <input type="date" class="form-control" id="dateFin" name="dateFin">
+      </div>
+      <div class="col-md-3">
+        <label for="membre">Membre</label>
+        <input type="text" class="form-control" id="membre" name="membre" placeholder="Nom du membre">
+      </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary mt-4">Filtrer</button>
+      </div>
+    </div>
+  </form>
+
+  <table>
+    <thead>
+    <tr>
+      <th>ID Commande</th>
+      <th>Date de Commande</th>
+      <th>Client</th>
+      <th>Vendeur</th>
+      <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="commande : ${commandes}">
+      <td th:text="${commande.idCommande}"></td>
+      <td th:text="${commande.dateCommande}"></td>
+      <td th:text="${commande.commandesAchats.nom} + ' ' + ${commande.commandesAchats.prenom}"></td>
+      <td th:text="${commande.commandesVentes.nom} + ' ' + ${commande.commandesVentes.prenom}"></td>
+      <td th:text="${commande.prixTotal}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

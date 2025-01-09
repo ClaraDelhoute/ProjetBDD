@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<style>
+
+    /* Global Styles */
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+
+
+    .nav-menu {
+        list-style: none;
+        display: flex;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-link {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.3s;
+    }
+
+    .nav-link i {
+        margin-right: 8px;
+        font-size: 1.2rem;
+    }
+
+    .nav-link:hover {
+        background-color: #34495e;
+    }
+
+    .home {
+        background-color: #1abc9c;
+        font-weight: bold;
+        border-radius: 4px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: #34495e;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        top: 100%;
+        left: 0;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+    }
+
+    .dropdown-menu li {
+        width: 200px;
+    }
+
+    .dropdown-menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+        display: block;
+        transition: background-color 0.3s;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #2c3e50;
+    }
+
+
+
+
+    .profile a {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+    }
+    .container {
+        width: 50%;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    input, select {
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #5cb85c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #4cae4c;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    table th, table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+    table th {
+        background-color: #5cb85c;
+        color: white;
+    }
+    table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    table tr:hover {
+        background-color: #f1f1f1;
+    }
+    .actions a {
+        text-decoration: none;
+        color: white;
+        padding: 5px 10px;
+        margin: 0 5px;
+        border-radius: 3px;
+    }
+</style>
+<body>
+<div class="container">
+    <h1>Connexion membre</h1>
+<form action ="isOk" method="post">
+    <input type="hidden" name="_method" value="GET">
+
+    <label for="username"> Nom : </label>
+    <input type="text" name="username" id="username">
+
+    <label for="password"> Mot de passe : </label>
+    <input type="password" name="password" id="password">
+
+    <button type="submit">Connexion</button>
+
+    <a href="/createAccount">Pas de compte ? Inscrivez-vous !</a>
+</form>
+</div>
+</body>
+</html>
