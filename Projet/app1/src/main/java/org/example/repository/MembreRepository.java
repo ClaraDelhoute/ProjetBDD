@@ -1,11 +1,11 @@
 package org.example.repository;
 
 import org.example.classes.Membre;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MembreRepository extends JpaRepository<Membre,Long> {
+public interface MembreRepository extends MongoRepository<Membre,Long> {
     Membre getMemberById(Long id);
     Membre getMembreByNom(String nom);
 

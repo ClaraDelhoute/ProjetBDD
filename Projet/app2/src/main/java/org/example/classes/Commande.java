@@ -1,31 +1,31 @@
 package org.example.classes;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
+@Document(collection = "commande")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Commande {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idCommande;
 
-    @ManyToOne
+    @DBRef
     private Membre commandesVentes;
 
-    @ManyToOne
+    @DBRef
     private Membre commandesAchats;
 
     private LocalDateTime dateCommande;
 
-    @OneToMany(mappedBy = "numeroSerie")
     private List<Materiel> liste;
 
     private Double prixTotal;

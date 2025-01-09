@@ -1,16 +1,16 @@
 package org.example.classes;
 
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.List;
 
-@Entity
+@Document(collection = "groupe")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,10 +21,10 @@ public class Groupe {
     private String ville;
     private Integer codePostal;
 
-    @OneToMany(mappedBy = "groupe")
+    @DBRef
     private List<Membre> membres;
 
-    @OneToOne
+    @DBRef
     private Materiel materiel;
 
 }

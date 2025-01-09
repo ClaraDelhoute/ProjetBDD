@@ -7,10 +7,12 @@ import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Entity
+@Document(collection = "materiel")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,10 +24,10 @@ public class Materiel {
     private Type type;
     private Double prix;
 
-    @OneToOne(mappedBy = "materiel")
+    @DBRef
     private Groupe groupe;
 
-    @ManyToMany
+    @DBRef
     private List<Commande> commandes;
 }
 

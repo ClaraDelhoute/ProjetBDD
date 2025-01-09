@@ -1,43 +1,44 @@
 package org.example.classes;
 
-
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Entity
+@Document(collection = "membres") // Indique le nom de la collection MongoDB
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Membre {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id; // MongoDB utilise généralement String ou ObjectId pour l'ID
+
     private String nom;
     private String prenom;
     private String adresse;
     private String ville;
+
+    private Integer codePostal;
+
+    private String email;
+
+    private TypeMembre typeMembre; // L'énumération peut être gérée sans l'annotation @Enumerated
+
     private String login;
     private String password;
     private String confirmPassword;
-    @Column(length =  5)
-    private Integer codePostal;
-    @Column(nullable = false,unique = true)
-    private String email;
-    @Enumerated(EnumType.STRING)
-    private TypeMembre typeMembre;
 
-    @ManyToOne
-    private Groupe groupe;
+    @DBRef
+    private Groupe groupe; // Utilisation de @DBRef pour une relation vers Groupe
 
-    //Liste des commandes en tant que vendeur
-    @OneToMany(mappedBy = "commandesVentes")
-    private List<Commande> commandesVentes;
+    @DBRef
+    private List<Commande> commandesVentes; // Liste des commandes en tant que vendeur
 
-    //Liste des commandes en tant que client
-    @OneToMany(mappedBy = "commandesAchats")
-    private List<Commande> commandesAchats;
+    @DBRef
+    private List<Commande> commandesAchats; // Liste des commandes en tant que client
 }

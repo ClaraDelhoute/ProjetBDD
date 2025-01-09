@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.util.List;
 
@@ -17,14 +18,12 @@ public class Materiel {
     private Integer id;
     private String numeroSerie;
     private String marque;
-    private String modele;
-    private Type type;
     private Double prix;
 
-    @OneToOne(mappedBy = "materiel")
+    @DBRef
     private Groupe groupe;
 
-    @ManyToMany
+    @DBRef
     private List<Commande> commandes;
 }
 
