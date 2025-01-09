@@ -1,6 +1,5 @@
-package services;
+package org.example.services;
 
-import io.micrometer.observation.annotation.Observed;
 import org.example.classes.Membre;
 import org.example.classes.TypeMembre;
 import org.example.repository.MembreRepository;

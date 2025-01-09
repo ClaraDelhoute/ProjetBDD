@@ -2,14 +2,13 @@ package org.example.controller;
 
 import org.example.classes.Groupe;
 import org.example.classes.Materiel;
-import org.example.repository.MaterielRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
-import services.GroupeService;
-import services.MaterielService;
+import org.example.services.GroupeService;
+import org.example.services.MaterielService;
 
 import java.util.List;
 import java.util.Optional;

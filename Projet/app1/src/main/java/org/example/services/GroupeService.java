@@ -1,8 +1,7 @@
-package services;
+package org.example.services;
 
 
 import org.example.classes.Groupe;
-import org.example.classes.Membre;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +12,4 @@ public interface GroupeService {
     void deleteGroupe(Groupe groupe);
     Optional<Groupe> getGroupeById(String id);
     List<Groupe> getAllGroupes();
-
-    Groupe getGroupeByMembre(Membre membre);
 }

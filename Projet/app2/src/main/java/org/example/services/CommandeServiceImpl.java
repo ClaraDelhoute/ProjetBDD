@@ -1,27 +1,21 @@
-package services;
+package org.example.services;
 
 import org.example.classes.Commande;
-import org.example.classes.Materiel;
-import org.example.classes.Membre;
 import org.example.repository.CommandeRepository;
-import org.example.repository.MembreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class CommandeServiceImpl implements CommandeService {
+    private final CommandeRepository commandeRepository;
 
     @Autowired
-    private CommandeRepository commandeRepository;
-    @Autowired
-    private MembreRepository membreRepository;
-
-
+    public CommandeServiceImpl(CommandeRepository commandeRepository) {
+        this.commandeRepository = commandeRepository;
+    }
     @Override
     public void addCommande(Commande commande) {
         commandeRepository.save(commande);
@@ -38,17 +32,12 @@ public class CommandeServiceImpl implements CommandeService {
     }
 
     @Override
-    public Optional<Commande> getCommandeById(Long id) {
+    public Optional<Commande> getCommandeById(String id) {
         return commandeRepository.findById(id);
     }
 
     @Override
     public List<Commande> getAllCommandes() {
-        return commandeRepository.findAll(); // Récupère toutes les commandes
-    }
-
-    @Override
-    public List<Commande> findAll() {
         return commandeRepository.findAll();
     }
 }

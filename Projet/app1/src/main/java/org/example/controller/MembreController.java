@@ -1,6 +1,5 @@
 package org.example.controller;
 
-import ch.qos.logback.classic.Logger;
 import org.example.classes.Groupe;
 import org.example.classes.Membre;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
-import services.GroupeService;
-import services.MembreService;
-import services.MembreServiceImpl;
+import org.example.services.GroupeService;
+import org.example.services.MembreService;
 
 import java.util.List;
 import java.util.Optional;
@@ -72,7 +70,7 @@ public class MembreController {
                     membreExistant.setGroupe(groupe);
                 }
             }
-            membreExistant.setTypeMembre(membre.getTypeMembre());
+            membreExistant.setType(membre.getType());
             membreService.updateMembre(membreExistant);
         } else {
             System.out.println("Membre non existant");

@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
-import services.GroupeService;
-import services.MaterielService;
+import org.example.services.GroupeService;
+import org.example.services.MaterielService;
 
 import java.util.List;
 import java.util.Optional;

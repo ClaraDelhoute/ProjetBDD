@@ -7,13 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
-import services.GroupeService;
-import services.MaterielService;
+import org.example.services.GroupeService;
+import org.example.services.MaterielService;
 
 import java.util.List;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("/groupe")
 public class GroupeController {
 
     @Autowired
@@ -21,7 +22,7 @@ public class GroupeController {
     @Autowired
     private MaterielService materielService;
 
-    @GetMapping("/groupe")
+    @GetMapping
     public String groupe(Model model) {
         List<Materiel> materiels = materielService.getAllMateriel();
         if(!CollectionUtils.isEmpty(materiels)) {
@@ -36,7 +37,7 @@ public class GroupeController {
         return "redirect:/groupes";
     }
 
-    @GetMapping("/groupes")
+    @GetMapping("groupes")
     public String getAllGroupes(Model model) {
         List<Groupe> groupes = groupeService.getAllGroupes();
         model.addAttribute("groupes", groupes);

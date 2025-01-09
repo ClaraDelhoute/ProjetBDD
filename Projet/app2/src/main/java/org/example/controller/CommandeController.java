@@ -10,13 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import services.CommandeService;
-import services.GroupeService;
-import services.MaterielService;
-import services.MembreService;
+import org.example.services.CommandeService;
+import org.example.services.GroupeService;
+import org.example.services.MaterielService;
+import org.example.services.MembreService;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -72,11 +71,11 @@ public class CommandeController {
 
         // Créer une nouvelle commande
         Commande commande = new Commande();
-        commande.setCommandesAchats(client); // Associe le client à la commande
-        commande.setCommandesVentes(vendeur); // Associe le vendeur à la commande
+        commande.setIdMembre(client); // Associe le client à la commande
+        //commande.setCommandesVentes(vendeur); // Associe le vendeur à la commande
         commande.setListe(materiels); // Associe la liste de matériels à la commande
         commande.setPrixTotal(prixTotal); // Définit le prix total
-        commande.setDateCommande(LocalDateTime.now()); // Définit la date de la commande
+        commande.setDate(LocalDateTime.now()); // Définit la date de la commande
 
         // Ajouter la commande à la base de données
         commandeService.addCommande(commande);

@@ -1,7 +1,8 @@
-package services;
+package org.example.services;
 
 import org.example.classes.Commande;
 import org.example.repository.CommandeRepository;
+import org.example.repository.MembreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,12 +11,13 @@ import java.util.Optional;
 
 @Service
 public class CommandeServiceImpl implements CommandeService {
-    private final CommandeRepository commandeRepository;
 
     @Autowired
-    public CommandeServiceImpl(CommandeRepository commandeRepository) {
-        this.commandeRepository = commandeRepository;
-    }
+    private CommandeRepository commandeRepository;
+    @Autowired
+    private MembreRepository membreRepository;
+
+
     @Override
     public void addCommande(Commande commande) {
         commandeRepository.save(commande);
@@ -32,12 +34,17 @@ public class CommandeServiceImpl implements CommandeService {
     }
 
     @Override
-    public Optional<Commande> getCommandeById(String id) {
+    public Optional<Commande> getCommandeById(Long id) {
         return commandeRepository.findById(id);
     }
 
     @Override
     public List<Commande> getAllCommandes() {
+        return commandeRepository.findAll(); // Récupère toutes les commandes
+    }
+
+    @Override
+    public List<Commande> findAll() {
         return commandeRepository.findAll();
     }
 }
