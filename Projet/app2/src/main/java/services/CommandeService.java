@@ -9,6 +9,6 @@ public interface CommandeService {
     void addCommande(Commande commande);
     void updateCommande(Commande commande);
     void deleteCommande(Commande commande);
-    Optional<Commande> getCommandeById(Long id);
+    Optional<Commande> getCommandeById(String id);
     List<Commande> getAllCommandes();
 }

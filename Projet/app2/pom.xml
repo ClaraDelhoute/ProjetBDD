@@ -92,10 +92,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver-sync</artifactId>
-            <version>4.7.1</version> <!-- Make sure this version is compatible with Spring Boot 3.x -->
-        </dependency>
+
     </dependencies>
 </project>

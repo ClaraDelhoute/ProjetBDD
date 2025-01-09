@@ -19,12 +19,12 @@ public class Commande {
     private String idCommande;
 
     @DBRef
-    private Membre commandesVentesId;
+    private Membre idMembre;
 
-    @DBRef
-    private Membre commandesAchatsId;
+    /*@DBRef
+    private Membre commandesAchatsId;*/
 
-    private LocalDateTime dateCommande;
+    private LocalDateTime date;
 
     private List<Materiel> liste;
 
