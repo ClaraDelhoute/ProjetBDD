@@ -16,17 +16,19 @@ import java.util.List;
 @AllArgsConstructor
 public class Commande {
     @Id
-    private Long idCommande;
+    private String idCommande;
 
     @DBRef
-    private Membre commandesVentes;
+    private Membre commandesVentesId;
 
     @DBRef
-    private Membre commandesAchats;
+    private Membre commandesAchatsId;
 
     private LocalDateTime dateCommande;
 
     private List<Materiel> liste;
 
     private Double prixTotal;
+
+    private Integer codePostal;
 }

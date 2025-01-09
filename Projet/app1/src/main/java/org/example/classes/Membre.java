@@ -16,7 +16,7 @@ import java.util.List;
 public class Membre {
 
     @Id
-    private String id; // MongoDB utilise généralement String ou ObjectId pour l'ID
+    private String idMembre; // MongoDB utilise généralement String ou ObjectId pour l'ID
 
     private String nom;
     private String prenom;
@@ -27,7 +27,7 @@ public class Membre {
 
     private String email;
 
-    private TypeMembre typeMembre; // L'énumération peut être gérée sans l'annotation @Enumerated
+    private TypeMembre type; // L'énumération peut être gérée sans l'annotation @Enumerated
 
     private String login;
     private String password;

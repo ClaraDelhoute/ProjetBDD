@@ -1,13 +1,15 @@
 package org.example.classes;
 
 
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.MongoId;
+
 import java.util.List;
 
 @Document(collection = "groupe")
@@ -16,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Groupe {
     @Id
+    private String idGroupe;
     private String numero;
     private String nom;
     private String ville;

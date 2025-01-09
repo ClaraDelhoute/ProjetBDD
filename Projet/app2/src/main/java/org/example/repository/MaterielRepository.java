@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface MaterielRepository  extends MongoRepository<Materiel,String> {
     public List<Materiel> findByGroupe(Groupe groupe);
-    public List<Materiel> findByIdIn(List<Long> materielIds);
+    public List<Materiel> findByIdMaterielIn(List<Long> materielIds);
 }

@@ -11,12 +11,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="app1" target="19" />
+      <module name="app1" target="17" />
       <module name="app2" target="19" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="app1" options="-parameters" />
       <module name="app2" options="" />
     </option>
   </component>

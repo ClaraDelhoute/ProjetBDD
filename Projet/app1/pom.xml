@@ -4,6 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.3</version> <!-- Version de Spring Boot -->
+        <relativePath/> <!-- Pour éviter d'hériter d'un parent local -->
+    </parent>
+
     <groupId>org.example</groupId>
     <artifactId>app1</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -12,8 +19,14 @@
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>3.3.3</spring-boot.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
@@ -32,15 +45,19 @@
     </build>
 
     <dependencies>
-        <!-- Spring Boot Starter Web (pour créer des applications web avec Spring Boot) -->
+        <!-- Spring Boot Starter Web (for building web applications) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>3.3.3</version>
         </dependency>
 
+        <!-- Spring Boot Starter Data MongoDB (for MongoDB support) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
 
-        <!-- Lombok pour éviter de coder des getters/setters à la main -->
+        <!-- Lombok (for reducing boilerplate code) -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -48,38 +65,24 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Spring Boot Starter Thymeleaf (pour les vues si vous utilisez Thymeleaf) -->
+        <!-- Spring Boot Starter Thymeleaf (for Thymeleaf templates) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-            <version>3.3.3</version>
         </dependency>
 
-        <!-- Dépendance de MongoDB Driver (dans certains cas, il peut être nécessaire de le spécifier manuellement) -->
+        <!-- MongoDB Java Driver (ensure compatibility with Spring Boot 3.x) -->
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>3.12.14</version>
         </dependency>
-        <dependency>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>txw2</artifactId>
-            <version>4.0.5</version>
-            <scope>compile</scope>
-        </dependency>
 
+        <!-- Spring Boot Starter Test (for testing purposes) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-            <version>3.3.3</version>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>jakarta.persistence</groupId>
-            <artifactId>jakarta.persistence-api</artifactId>
-            <version>3.1.0</version>
-            <scope>compile</scope>
-        </dependency>
-
     </dependencies>
-
 </project>

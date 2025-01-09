@@ -51,6 +51,6 @@ public class MaterielServiceImpl implements MaterielService{
     }
 
     public List<Materiel> getMaterielsByIds(List<Long> materielIds) {
-        return materielRepository.findByIdIn(materielIds);
+        return materielRepository.findByIdMaterielIn(materielIds);
     }
 }

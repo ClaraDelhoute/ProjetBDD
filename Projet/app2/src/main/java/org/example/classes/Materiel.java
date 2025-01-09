@@ -1,22 +1,24 @@
 package org.example.classes;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Entity
+@Document(collection="materiel")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Materiel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private String idMateriel;
     private String numeroSerie;
+    private String modele;
+    private Type type;
     private String marque;
     private Double prix;
 
