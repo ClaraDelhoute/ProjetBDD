@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/groupe")
 public class GroupeController {
 
     @Autowired
@@ -22,7 +21,7 @@ public class GroupeController {
     @Autowired
     private MaterielService materielService;
 
-    @GetMapping
+    @GetMapping("/groupe")
     public String groupe(Model model) {
         List<Materiel> materiels = materielService.getAllMateriel();
         if(!CollectionUtils.isEmpty(materiels)) {

@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.List;
 
-@Document(collection = "groupe")
+@Document(collection = "groupes")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
