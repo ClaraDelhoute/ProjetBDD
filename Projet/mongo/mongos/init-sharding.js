@@ -23,7 +23,7 @@ db.createUser({
 */
 
 // Création de la collection "groupe"
-db.createCollection("groupe");
+db.createCollection("groupes");
 db.createCollection("membres");
 db.createCollection("materiel");
 db.createCollection("commande");
@@ -34,7 +34,7 @@ db.createCollection("commande");
 ====================================================================================================
 */
 
-db.groupe.createIndex({ codePostal: 1 });
+db.groupes.createIndex({ codePostal: 1 });
 
 db.membres.createIndex({ codePostal: 1 });
 
@@ -55,15 +55,15 @@ db.commande.createIndex({ idMembre: 1 });
 sh.enableSharding("mydatabase");
 
 // Activation du sharding
-sh.shardCollection("mydatabase.groupe", { codePostal: 1 });
+sh.shardCollection("mydatabase.groupes", { codePostal: 1 });
 sh.shardCollection("mydatabase.membres", { codePostal: 1 });
 sh.shardCollection("mydatabase.materiel", { codePostal: 1 });
 sh.shardCollection("mydatabase.commande", { codePostal: 1 });
 
 // Configuration des plages de données pour les shards
-sh.splitAt("mydatabase.groupe", { codePostal: 50000 });
-sh.moveChunk("mydatabase.groupe", { codePostal: 0 }, "shard0");
-sh.moveChunk("mydatabase.groupe", { codePostal: 50001 }, "shard1");
+sh.splitAt("mydatabase.groupes", { codePostal: 50000 });
+sh.moveChunk("mydatabase.groupes", { codePostal: 0 }, "shard0");
+sh.moveChunk("mydatabase.groupes", { codePostal: 50001 }, "shard1");
 
 sh.splitAt("mydatabase.membres", { codePostal: 50000 });
 sh.moveChunk("mydatabase.membres", { codePostal: 0 }, "shard0");
@@ -85,13 +85,13 @@ sh.moveChunk("mydatabase.commande", { codePostal: 50001 }, "shard1");
 */
 
 
-// Insertion des données dans "groupe"
-db.groupe.insertMany([
-    { idGroupe: 1, idMembre: 1, numero: "A001", nom: "Groupe Alpha", ville: "Paris", codePostal: 75001 },
-    { idGroupe: 2, idMembre: 2, numero: "A002", nom: "Groupe Beta", ville: "Lyon", codePostal: 69000 },
-    { idGroupe: 3, idMembre: 3, numero: "A003", nom: "Groupe Gamma", ville: "Nice", codePostal: 6000 },
-    { idGroupe: 4, idMembre: 4, numero: "A004", nom: "Groupe Delta", ville: "Caen", codePostal: 14000 },
-    { idGroupe: 5, idMembre: 5, numero: "A005", nom: "Groupe Epsilon", ville: "Lille", codePostal: 59000 }
+// Insertion des données dans "groupes"
+db.groupes.insertMany([
+    { _id: ObjectId('67800070c5f2fb32c3f37ba1'), numero: "A001", nom: "Groupe Alpha", ville: "Paris", codePostal: 75001, _class: "org.example.classes.Groupe" },
+    { _id: ObjectId('67800070c5f2fb32c3f37ba2'), numero: "A002", nom: "Groupe Beta", ville: "Lyon", codePostal: 69000, _class: "org.example.classes.Groupe" },
+    { _id: ObjectId('67800070c5f2fb32c3f37ba3'), numero: "A003", nom: "Groupe Gamma", ville: "Nice", codePostal: 6000, _class: "org.example.classes.Groupe" },
+    { _id: ObjectId('67800070c5f2fb32c3f37ba4'), numero: "A004", nom: "Groupe Delta", ville: "Caen", codePostal: 14000, _class: "org.example.classes.Groupe" },
+    { _id: ObjectId('67800070c5f2fb32c3f37ba5'), numero: "A005", nom: "Groupe Epsilon", ville: "Lille", codePostal: 59000, _class: "org.example.classes.Groupe" },
 ]);
 
 // Insertion des données dans "membre"
