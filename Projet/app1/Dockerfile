@@ -1,12 +1,13 @@
-# Étape 1 : Construire app1
+# Étape 1 : Construire l'application avec Maven
 FROM maven:3.9.6-amazoncorretto-21 AS build-app1
 WORKDIR /app1
-COPY /app1/pom.xml /app1/pom.xml
-COPY /app1/src /app1/src
-RUN mvn clean install
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Étape finale : Créer l'image pour exécuter app1
+# Étape 2 : Exécuter l'application avec Amazon Corretto
 FROM amazoncorretto:21.0.2-alpine3.19
-COPY --from=build-app1 /app1/target/*.jar /app1.jar
-EXPOSE 8081
-ENTRYPOINT ["java", "-jar", "/app1.jar"]
+WORKDIR /app
+COPY --from=build-app1 /app1/target/*.jar /app/app1.jar
+EXPOSE 8082
+ENTRYPOINT ["java", "-jar", "/app/app1.jar"]

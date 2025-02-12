@@ -1,0 +1,164 @@
+services:
+  shard0-replica0:
+    build:
+      context: ./mongo/mongod
+    command: mongod -f /etc/mongod.conf --shardsvr --replSet shard0
+    volumes:
+      - ./mongo/mongod/mongod.conf:/etc/mongod.conf
+      - ./mongo/mongod/mongod-runextra.sh:/scripts/mongod-runextra.sh
+    networks:
+      internalnetwork:
+        aliases:
+          - shard0-replica0
+    environment:
+      - REPSET_NAME=shard0
+      - DO_INIT_REPSET=true
+    expose:
+      - "27017"
+
+  shard0-replica1:
+    build:
+      context: ./mongo/mongod
+    command: mongod -f /etc/mongod.conf --shardsvr --replSet shard0
+    volumes:
+      - ./mongo/mongod/mongod.conf:/etc/mongod.conf
+      - ./mongo/mongod/mongod-runextra.sh:/scripts/mongod-runextra.sh
+    networks:
+      internalnetwork:
+        aliases:
+          - shard0-replica1
+    environment:
+      - REPSET_NAME=shard0
+    expose:
+      - "27017"
+
+  shard1-replica0:
+    build:
+      context: ./mongo/mongod
+    command: mongod -f /etc/mongod.conf --shardsvr --replSet shard1
+    volumes:
+      - ./mongo/mongod/mongod.conf:/etc/mongod.conf
+      - ./mongo/mongod/mongod-runextra.sh:/scripts/mongod-runextra.sh
+    networks:
+      internalnetwork:
+        aliases:
+          - shard1-replica0
+    environment:
+      - REPSET_NAME=shard1
+      - DO_INIT_REPSET=true
+    expose:
+      - "27017"
+
+  shard1-replica1:
+    build:
+      context: ./mongo/mongod
+    command: mongod -f /etc/mongod.conf --shardsvr --replSet shard1
+    volumes:
+      - ./mongo/mongod/mongod.conf:/etc/mongod.conf
+      - ./mongo/mongod/mongod-runextra.sh:/scripts/mongod-runextra.sh
+    networks:
+      internalnetwork:
+        aliases:
+          - shard1-replica1
+    environment:
+      - REPSET_NAME=shard1
+    expose:
+      - "27017"
+
+  configdb-replica0:
+    build:
+      context: ./mongo/mongod
+    command: mongod -f /etc/mongod.conf --configsvr --replSet configdb
+    volumes:
+      - ./mongo/mongod/mongod.conf:/etc/mongod.conf
+      - ./mongo/mongod/mongod-runextra.sh:/scripts/mongod-runextra.sh
+    networks:
+      internalnetwork:
+        aliases:
+          - configdb-replica0
+    environment:
+      - REPSET_NAME=configdb
+      - DO_INIT_REPSET=true
+    expose:
+      - "27017"
+
+  configdb-replica1:
+    build:
+      context: ./mongo/mongod
+    command: mongod -f /etc/mongod.conf --configsvr --replSet configdb
+    volumes:
+      - ./mongo/mongod/mongod.conf:/etc/mongod.conf
+      - ./mongo/mongod/mongod-runextra.sh:/scripts/mongod-runextra.sh
+    networks:
+      internalnetwork:
+        aliases:
+          - configdb-replica1
+    environment:
+      - REPSET_NAME=configdb
+    expose:
+      - "27017"
+
+  mongos-router0:
+    build:
+      context: ./mongo/mongos
+    command: mongos --port 27017 --bind_ip 0.0.0.0 --configdb "configdb/configdb-replica0:27017,configdb-replica1:27017"
+    depends_on:
+      - shard0-replica0
+      - shard0-replica1
+      - shard1-replica0
+      - shard1-replica1
+      - configdb-replica0
+      - configdb-replica1
+    networks:
+      internalnetwork:
+        aliases:
+          - mongos-router0
+    volumes:
+      - ./mongo/mongos/mongos-runextra.sh:/scripts/mongos-runextra.sh
+      - ./mongo/mongos/init-sharding.js:/scripts/init-sharding.js
+    environment:
+      - SHARD_LIST=shard0/shard0-replica0:27017,shard0-replica1:27017;shard1/shard1-replica0:27017,shard1-replica1:27017
+    expose:
+      - "27017"
+    ports:
+      - "27017:27017"
+
+  mongos-router1:
+    build:
+      context: ./mongo/mongos
+    command: mongos --port 27017 --bind_ip 0.0.0.0 --configdb "configdb/configdb-replica0:27017,configdb-replica1:27017"
+    networks:
+      internalnetwork:
+        aliases:
+          - mongos-router1
+    expose:
+      - "27017"
+    ports:
+      - "27018:27017"
+
+  app1:
+    build:
+      context: ./app1
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mongos-router0
+      - mongos-router1
+    networks:
+      - internalnetwork
+
+  app2:
+    build:
+      context: ./app2
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8082"
+    depends_on:
+      - mongos-router0
+      - mongos-router1
+    networks:
+      - internalnetwork
+
+networks:
+  internalnetwork: {}
