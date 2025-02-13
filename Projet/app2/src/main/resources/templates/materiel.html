@@ -7,7 +7,6 @@
 </head>
 <style>
 
-    /* Global Styles */
     body {
         margin: 0;
         font-family: Arial, sans-serif;
@@ -15,7 +14,6 @@
         color: #333;
     }
 
-    /* Navbar */
     .navbar {
         background-color: #2c3e50;
         display: flex;
@@ -63,7 +61,6 @@
         border-radius: 4px;
     }
 
-    /* Dropdown Styles */
     .dropdown-menu {
         display: none;
         position: absolute;
@@ -220,7 +217,7 @@
     }
 </style>
 <body>
-<div th:replace="navbar.html :: navbar"></div>
+<div th:replace="~{navbar.html :: navbar}"></div>
 <div class="container">
     <h1>Ajouter un matériel</h1>
         <form action="add-materiel" method="post">
