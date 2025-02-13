@@ -84,10 +84,7 @@ Utilisation de Docker pour déployer les bases et garantir un environnement stab
 
 # Installation et Lancement
 
-Clonez le dépôt :
-
-git clone https://github.com/votre-repo.git
-cd votre-repo
+Clonez le dépôt puis diriger vous dans le dossier dans lequel vous avez clonne le projet
 
 Lancez les containers :
 
@@ -101,11 +98,11 @@ Interface d'archivage et de recherche : http://localhost:8082
 
 # Améliorations Futures
 
-Ajout de la sécurité sur les connexions utilisateurs
+- Ajout de la sécurité sur les connexions utilisateurs
 
-Optimisation des performances de la base de données
+- Optimisation des performances de la base de données
 
-Interface utilisateur améliorée
+- Interface utilisateur améliorée
 
 # Conclusion
 
