@@ -1,4 +1,4 @@
-README - Système de Gestion d'Adhérents pour une Association
+#README - Système de Gestion d'Adhérents pour une Association
 
 Projet réalisé par :
 
@@ -10,11 +10,11 @@ Choquet Mathias
 
 Delhoute Clara
 
-Objectif du Projet
+#Objectif du Projet
 
 L'objectif de ce projet est de mettre en place un système de gestion des adhérents d'une association qui possède plusieurs antennes ("groupes"). Cette association gère du matériel informatique destiné au reconditionnement. Le projet comprend la mise en place d'une base de données distribuée et d'un système de gestion applicative connecté à une instance MongoDB exécutée via Docker.
 
-Structure des Données
+#Structure des Données
 
 Le système gère les entités suivantes :
 
@@ -36,7 +36,7 @@ Liste de matériels
 
 Prix total
 
-Fonctionnalités Implémentées
+#Fonctionnalités Implémentées
 
 Nous avons développé deux applications distinctes pour réaliser les tâches suivantes :
 
@@ -72,27 +72,17 @@ Mise en place de Replica Sets pour assurer la redondance et la fiabilité des do
 
 Utilisation de Docker pour déployer les bases et garantir un environnement stable.
 
-Technologies Utilisées
+#Technologies Utilisées
 
-Backend : Node.js / Python (Flask ou Django)
+Backend : Java
 
 Base de données : MongoDB
 
 Infrastructure : Docker, Docker Compose
 
-Frontend : React / Vue.js
+Frontend : Thymeleaf
 
-Installation et Lancement
-
-Prérequis
-
-Docker et Docker Compose installés
-
-Node.js et npm (si utilisation de Node.js pour le backend)
-
-Python et pip (si utilisation de Flask ou Django)
-
-Déploiement avec Docker
+#Installation et Lancement
 
 Clonez le dépôt :
 
