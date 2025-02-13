@@ -1,6 +1,6 @@
 # README - Système de Gestion d'Adhérents pour une Association
 
-## Projet réalisé par :
+Projet réalisé par :
 
 - Desticourt Matt
 
@@ -18,11 +18,11 @@ L'objectif de ce projet est de mettre en place un système de gestion des adhér
 
 Le système gère les entités suivantes :
 
-Membre : nom, prénom, adresse (numéro, rue, ville, code postal), email
+- Membre : nom, prénom, adresse (numéro, rue, ville, code postal), email
 
-Groupe : numéro (G1, G2, ...), nom, ville, code postal
+- Groupe : numéro (G1, G2, ...), nom, ville, code postal
 
-Matériel : numéro de série, marque, modèle, type (ex: écran, clavier, souris, tour, laptop, enceintes), prix
+- Matériel : numéro de série, marque, modèle, type (ex: écran, clavier, souris, tour, laptop, enceintes), prix
 
 Commande :
 
@@ -44,25 +44,25 @@ Nous avons développé deux applications distinctes pour réaliser les tâches s
 
 Inscription des Membres
 
-Création des Groupes
+- Création des Groupes
 
-Ajout de Matériel
+- Ajout de Matériel
 
-Login simple (vérification login/mot de passe sans sécurité approfondie)
+- Login simple (vérification login/mot de passe sans sécurité approfondie)
 
-Passation de commandes par les Membres Clients
+- Passation de commandes par les Membres Clients
 
 ## Application d'archivage et de recherche des commandes :
 
-Recherche par plage de dates
+- Recherche par plage de dates
 
-Recherche par Membre Client
+- Recherche par Membre Client
 
-Recherche par Membre Actif
+- Recherche par Membre Actif
 
-Recherche par Matériel
+- Recherche par Matériel
 
-Infrastructure Technique
+# Infrastructure Technique
 
 Base de Données Distribuée avec MongoDB et Docker
 
@@ -74,13 +74,13 @@ Utilisation de Docker pour déployer les bases et garantir un environnement stab
 
 # Technologies Utilisées
 
-Backend : Java
+- Backend : Java
 
-Base de données : MongoDB
+- Base de données : MongoDB
 
-Infrastructure : Docker, Docker Compose
+- Infrastructure : Docker, Docker Compose
 
-Frontend : Thymeleaf
+- Frontend : Thymeleaf
 
 # Installation et Lancement
 
