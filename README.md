@@ -1,6 +1,6 @@
 # README - Système de Gestion d'Adhérents pour une Association
 
-Projet réalisé par :
+## Projet réalisé par :
 
 - Desticourt Matt
 
@@ -36,11 +36,11 @@ Liste de matériels
 
 Prix total
 
-#Fonctionnalités Implémentées
+# Fonctionnalités Implémentées
 
 Nous avons développé deux applications distinctes pour réaliser les tâches suivantes :
 
-Application de gestion principale :
+## Application de gestion principale :
 
 Inscription des Membres
 
@@ -52,7 +52,7 @@ Login simple (vérification login/mot de passe sans sécurité approfondie)
 
 Passation de commandes par les Membres Clients
 
-Application d'archivage et de recherche des commandes :
+## Application d'archivage et de recherche des commandes :
 
 Recherche par plage de dates
 
