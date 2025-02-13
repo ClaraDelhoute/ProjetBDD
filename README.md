@@ -1,20 +1,20 @@
-#README - Système de Gestion d'Adhérents pour une Association
+# README - Système de Gestion d'Adhérents pour une Association
 
 Projet réalisé par :
 
-Desticourt Matt
+- Desticourt Matt
 
-Bouchedhomme Alexis
+- Bouchedhomme Alexis
 
-Choquet Mathias
+- Choquet Mathias
 
-Delhoute Clara
+- Delhoute Clara
 
-#Objectif du Projet
+# Objectif du Projet
 
 L'objectif de ce projet est de mettre en place un système de gestion des adhérents d'une association qui possède plusieurs antennes ("groupes"). Cette association gère du matériel informatique destiné au reconditionnement. Le projet comprend la mise en place d'une base de données distribuée et d'un système de gestion applicative connecté à une instance MongoDB exécutée via Docker.
 
-#Structure des Données
+# Structure des Données
 
 Le système gère les entités suivantes :
 
@@ -72,7 +72,7 @@ Mise en place de Replica Sets pour assurer la redondance et la fiabilité des do
 
 Utilisation de Docker pour déployer les bases et garantir un environnement stable.
 
-#Technologies Utilisées
+# Technologies Utilisées
 
 Backend : Java
 
@@ -82,7 +82,7 @@ Infrastructure : Docker, Docker Compose
 
 Frontend : Thymeleaf
 
-#Installation et Lancement
+# Installation et Lancement
 
 Clonez le dépôt :
 
@@ -99,7 +99,7 @@ Interface de gestion principale : http://localhost:8083
 
 Interface d'archivage et de recherche : http://localhost:8082
 
-Améliorations Futures
+# Améliorations Futures
 
 Ajout de la sécurité sur les connexions utilisateurs
 
@@ -107,6 +107,6 @@ Optimisation des performances de la base de données
 
 Interface utilisateur améliorée
 
-Conclusion
+# Conclusion
 
 Ce projet fournit une solution efficace et fiable pour la gestion des adhérents, du matériel et des commandes d'une association de reconditionnement informatique. L'utilisation de MongoDB en environnement Docker permet d'assurer la persistance et la disponibilité des données.
