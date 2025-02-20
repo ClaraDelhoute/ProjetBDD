@@ -84,7 +84,7 @@ Utilisation de Docker pour déployer les bases et garantir un environnement stab
 
 # Installation et Lancement
 
-Clonez le dépôt puis diriger vous dans le dossier dans lequel vous avez clonne le projet
+Clonez le dépôt puis diriger vous dans le dossier dans lequel vous avez clonne le projet et dans le sous-répertoire Projet
 
 Lancez les containers :
 
