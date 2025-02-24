@@ -94,7 +94,7 @@ Accédez aux applications via :
 
 Interface de gestion principale : http://localhost:8083
 
-Interface d'archivage et de recherche : http://localhost:8082
+Interface d'archivage et de recherche : http://localhost:8082/dashboard
 
 # Améliorations Futures
 
