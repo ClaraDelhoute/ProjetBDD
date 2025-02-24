@@ -16,7 +16,7 @@ import java.util.List;
 public class Membre {
 
     @Id
-    private String idMembre; // MongoDB utilise généralement String ou ObjectId pour l'ID
+    private Long idMembre; // MongoDB utilise généralement String ou ObjectId pour l'ID
 
     private String nom;
     private String prenom;
