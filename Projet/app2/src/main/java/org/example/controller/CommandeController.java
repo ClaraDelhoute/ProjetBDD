@@ -63,8 +63,8 @@ public class CommandeController {
                        @RequestParam Double prixTotal) {
 
         // Récupérer le client et le vendeur depuis la base de données
-        Membre client = membreService.getMembreById(clientId);
-        Membre vendeur = membreService.getMembreById(vendeurId);
+        Membre client = membreService.getMembreByIdMembre(clientId);
+        Membre vendeur = membreService.getMembreByIdMembre(vendeurId);
 
         // Récupérer la liste des matériels sélectionnés par leurs IDs
         List<Materiel> materiels = materielService.getMaterielsByIds(materielIds);
