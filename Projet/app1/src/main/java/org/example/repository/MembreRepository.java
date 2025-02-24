@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MembreRepository extends MongoRepository<Membre,Long> {
-    Membre getMemberById(Long id);
+    Membre getMembreByIdMembre(Long id);
     Membre getMembreByNom(String nom);
 
     Membre getMembreByNomAndPassword(String nom, String password);
