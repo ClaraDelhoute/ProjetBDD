@@ -257,7 +257,7 @@
         <label for="materiels">Matériel(s)</label>
         <select id="materiels" name="materielIds" multiple required>
             <option th:each="materiel : ${materiels}"
-                    th:value="${materiel.id}"
+                    th:value="${materiel.idMateriel}"
                     th:text="${materiel.marque} + ' ' + ${materiel.modele} + ' (' + ${materiel.type} + ') - ' + ${materiel.prix} + '€'">
             </option>
         </select>

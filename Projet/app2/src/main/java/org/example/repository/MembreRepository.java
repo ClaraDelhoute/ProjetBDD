@@ -9,9 +9,8 @@ import java.util.List;
 
 @Repository
 public interface MembreRepository extends MongoRepository<Membre,String> {
-    Membre getMemberById(Long id);
+    Membre getMemberByIdMembre(Long id);
     Membre getMembreByNom(String nom);
     Membre getMembreByNomAndPassword(String nom, String password);
-
     List<Membre> getMembreByTypeMembre(TypeMembre typeClient);
 }

@@ -269,8 +269,8 @@
             <td th:text="${materiel.prix}"></td>
             <td class="actions">
                 <!-- Actions : Modifier et Supprimer -->
-                <a th:href="@{/materiel-update/{id}(id=${materiel.id})}" class="edit">Modifier</a>
-                <a th:href="@{/materiel-delete/{id}(id=${materiel.id})}" class="delete">Supprimer</a>
+                <a th:href="@{/materiel-update/{id}(id=${materiel.idMateriel})}" class="edit">Modifier</a>
+                <a th:href="@{/materiel-delete/{id}(id=${materiel.idMateriel})}" class="delete">Supprimer</a>
             </td>
         </tr>
         </tbody>

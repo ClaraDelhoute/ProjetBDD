@@ -126,9 +126,9 @@
             <select id="idMateriel" name="idMateriel">
                 <option value="">-- Tous --</option>
                 <option th:each="materiel : ${listeMateriels}"
-                        th:value="${materiel.id}"
+                        th:value="${materiel.idMateriel}"
                         th:text="${materiel.nom}"
-                        th:selected="${params.idMateriel == materiel.id}">
+                        th:selected="${params.idMateriel == materiel.idMateriel}">
                 </option>
             </select>
         </div>
