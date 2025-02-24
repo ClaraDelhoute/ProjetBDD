@@ -104,9 +104,9 @@
             <select id="idMembreClient" name="idMembreClient">
                 <option value="">-- Tous --</option>
                 <option th:each="membre : ${listeMembresClients}"
-                        th:value="${membre.id}"
+                        th:value="${membre.idMembre}"
                         th:text="${membre.nom}"
-                        th:selected="${params.idMembreClient == membre.id}">
+                        th:selected="${params.idMembreClient == membre.idMembre}">
                 </option>
             </select>
         </div>
@@ -115,9 +115,9 @@
             <select id="idMembreActif" name="idMembreActif">
                 <option value="">-- Tous --</option>
                 <option th:each="membreActif : ${listeMembresActifs}"
-                        th:value="${membreActif.id}"
+                        th:value="${membreActif.idMembre}"
                         th:text="${membreActif.nom}"
-                        th:selected="${params.idMembreActif == membreActif.id}">
+                        th:selected="${params.idMembreActif == membreActif.idMembre}">
                 </option>
             </select>
         </div>
