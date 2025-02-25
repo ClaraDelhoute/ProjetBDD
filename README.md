@@ -135,7 +135,7 @@ Interface d'archivage et de recherche : http://localhost:8081/dashboard
 
 # Fonctionnalités manquantes 
 
-- Dans l'application dashboard des commandes (étape 4), seul la recherche par date est fonctionnelle.
+- Dans l'application de dashboard des commandes (étape 4), seule la recherche par date est fonctionnelle.
 - Un matériel n'est pas lié à un groupe.
 - Le matériel et les commandes ne possèdent pas de champ code postal, il ne sont donc pas shardés sur les réplicats correspondants.
 
