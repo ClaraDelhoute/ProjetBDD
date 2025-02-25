@@ -34,7 +34,7 @@ public class CommandeServiceImpl implements CommandeService {
     }
 
     @Override
-    public Optional<Commande> getCommandeById(Long id) {
+    public Optional<Commande> getCommandeById(String id) {
         return commandeRepository.findById(id);
     }
 

@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Commande {
     @Id
-    private Long idCommande;
+    private String idCommande;
 
     @DBRef
     private Membre commandesVentes;

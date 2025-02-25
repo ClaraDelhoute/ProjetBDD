@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Materiel {
     @Id
-    private Integer idMateriel;
+    private String idMateriel;
     private String numeroSerie;
     private String modele;
     private Type type;
