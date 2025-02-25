@@ -84,6 +84,31 @@ Utilisation de Docker pour déployer les bases et garantir un environnement stab
 
 # Installation et Lancement
 
+## Attention
+
+⚠️ Nous initialisons nos Docker avec des scripts `.sh` (shell) pour compléter automatiquement notre base de données. ⚠️
+
+Si vous travaillez sur Windows, Git change le format des fins de ligne du format LF vers CRLF. Il est donc indispensable, si vous déployez nos Docker sur GitHub, de modifier le format des fins de lignes **manuellement** dans votre IDE pour les fichiers suivants :
+
+(Globalement tout ce qui se trouve dans le répertoire `mongod` et `mongos` dans `/Projet/mongo/`)
+
+- /Projet/mongo/mongod/mongod-runextra.sh
+- /Projet/mongo/mongod/mongod-start.sh
+- /Projet/mongo/mongod/mongod.conf
+
+Ainsi que dans les fichiers suivants:
+
+- /Projet/mongo/mongos/init-sharding.js
+- /Projet/mongo/mongos/mongos-runextra.sh
+- /Projet/mongo/mongos/mongos-start.sh
+
+Dans Visual Studio Code:
+| Before | After |
+| --- | --- |
+| ![before](images/before.png)  | ![after](images/after.png) |
+
+## Déploiement
+
 Clonez le dépôt puis diriger vous dans le dossier dans lequel vous avez clonne le projet et dans le sous-répertoire Projet
 
 Lancez les containers :
@@ -95,6 +120,10 @@ Accédez aux applications via :
 Interface de gestion principale : http://localhost:8083
 
 Interface d'archivage et de recherche : http://localhost:8081/dashboard
+
+# Comment passer une commande 
+
+⚠️ Créer votre compte en tant que membre client -> La bdd ne possède aucun vendeur, créer un membre actif depuis l'interface d'ajout un membrre puis créer un matériel et ensuite vous pourrez passer commande ⚠️
 
 # Améliorations Futures
 

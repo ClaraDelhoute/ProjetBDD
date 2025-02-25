@@ -57,30 +57,25 @@ public class CommandeController {
     }
 
     @PostMapping("/shop")
-    public String shop(@RequestParam String clientId,
-                       @RequestParam String vendeurId,
-                       @RequestParam List<Long> materielIds,
-                       @RequestParam Double prixTotal) {
+    public String shop(@RequestParam("clientId") String clientId,
+                       @RequestParam("vendeurId") String vendeurId,
+                       @RequestParam("materielIds") List<String> materielIds,
+                       @RequestParam("prixTotal") Double prixTotal) {
 
-        // Récupérer le client et le vendeur depuis la base de données
         Membre client = membreService.getMembreByIdMembre(clientId);
         Membre vendeur = membreService.getMembreByIdMembre(vendeurId);
 
-        // Récupérer la liste des matériels sélectionnés par leurs IDs
         List<Materiel> materiels = materielService.getMaterielsByIds(materielIds);
 
-        // Créer une nouvelle commande
         Commande commande = new Commande();
-        commande.setIdMembre(client); // Associe le client à la commande
-        //commande.setCommandesVentes(vendeur); // Associe le vendeur à la commande
-        commande.setListe(materiels); // Associe la liste de matériels à la commande
-        commande.setPrixTotal(prixTotal); // Définit le prix total
-        commande.setDate(LocalDateTime.now()); // Définit la date de la commande
+        commande.setIdMembre(client);
+        commande.setIdVendeur(vendeur);
+        commande.setListe(materiels);
+        commande.setPrixTotal(prixTotal);
+        commande.setDate(LocalDateTime.now());
 
-        // Ajouter la commande à la base de données
         commandeService.addCommande(commande);
 
-        // Rediriger vers la page d'accueil ou une page de succès
         return "index";
     }
 }

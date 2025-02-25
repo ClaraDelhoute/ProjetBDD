@@ -14,6 +14,6 @@ public interface MaterielService {
     Optional<Materiel> getMateriel(String id);
 
     List<Materiel> getAllMaterielsByGroupe(Groupe groupe);
-    public List<Materiel> getMaterielsByIds(List<Long> materielIds);
+    public List<Materiel> getMaterielsByIds(List<String> materielIds);
 
 }

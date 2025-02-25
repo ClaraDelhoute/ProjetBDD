@@ -234,21 +234,21 @@
     <!-- Affichage des informations du client -->
     <div class="client-info">
         <h2>Client</h2>
-        <p><strong>Nom :</strong> <span th:text="${client.nom}"></span></p>
+        <p><strong>Nom :</strong> <span th:text="${client.nom} ?: 'Nom non disponible'"></span></p>
         <p><strong>Prénom :</strong> <span th:text="${client.prenom}"></span></p>
         <p><strong>Email :</strong> <span th:text="${client.email}"></span></p>
     </div>
 
     <!-- Formulaire pour créer une commande -->
     <form action="/shop" method="post">
-        <input type="hidden" name="clientId" th:value="${client.id}" />
+        <input type="hidden" name="clientId" th:value="${client.idMembre}" />
 
         <!-- Sélection du vendeur (commandesVentes) -->
         <label for="vendeur">Vendeur</label>
         <select id="vendeur" name="vendeurId" required>
             <option value="" disabled selected>-- Sélectionnez un vendeur --</option>
             <option th:each="vendeur : ${vendeurs}"
-                    th:value="${vendeur.id}"
+                    th:value="${vendeur.idMembre}"
                     th:text="${vendeur.nom} + ' ' + ${vendeur.prenom}">
             </option>
         </select>

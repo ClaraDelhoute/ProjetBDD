@@ -175,23 +175,32 @@
         margin: 0 5px;
         border-radius: 3px;
     }
+     .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+    }
 </style>
 <body>
 <div class="container">
     <h1>Connexion membre</h1>
-<form action ="isOk" method="post">
-    <input type="hidden" name="_method" value="GET">
 
-    <label for="username"> Nom : </label>
-    <input type="text" name="username" id="username">
+    <!-- Affichage du message d'erreur -->
+    <div th:if="${error}" class="error-message">
+        <p th:text="${error}"></p>
+    </div>
 
-    <label for="password"> Mot de passe : </label>
-    <input type="password" name="password" id="password">
+    <form action="/home" method="post">
+        <label for="username">Nom :</label>
+        <input type="text" name="username" id="username" required>
 
-    <button type="submit">Connexion</button>
+        <label for="password">Mot de passe :</label>
+        <input type="password" name="password" id="password" required>
+
+        <button type="submit">Connexion</button>
+    </form>
 
     <a href="/createAccount">Pas de compte ? Inscrivez-vous !</a>
-</form>
 </div>
 </body>
 </html>

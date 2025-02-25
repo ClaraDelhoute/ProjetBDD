@@ -24,8 +24,8 @@ public class Home {
         return "connexion";
     }
 
-    @PostMapping("/isOk")
-    public String isOk(@RequestParam("username") String username, @RequestParam("password")String password, Model model, HttpSession session) {
+    @PostMapping("/home")
+    public String home(@RequestParam("username") String username, @RequestParam("password")String password, Model model, HttpSession session) {
         Membre user = membreService.getMembreByNomAndPassword(username, password);
         if(user != null) {
             session.setAttribute("user",user);

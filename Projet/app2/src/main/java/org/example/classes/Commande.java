@@ -21,8 +21,8 @@ public class Commande {
     @DBRef
     private Membre idMembre;
 
-    /*@DBRef
-    private Membre commandesAchatsId;*/
+    @DBRef
+    private Membre idVendeur;
 
     private LocalDateTime date;
 

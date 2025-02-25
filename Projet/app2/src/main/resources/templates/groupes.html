@@ -253,8 +253,8 @@
             <td th:text="${groupe.codePostal}"></td>
             <td class="actions">
                 <!-- Actions : Modifier et Supprimer -->
-                <a th:href="@{/groupe-update/{id}(id=${groupe.numero})}" class="edit">Modifier</a>
-                <a th:href="@{/groupe-delete/{id}(id=${groupe.numero})}" class="delete">Supprimer</a>
+                <a th:href="@{/groupe-update/{id}(id=${groupe.idGroupe})}" class="edit">Modifier</a>
+                <a th:href="@{/groupe-delete/{id}(id=${groupe.idGroupe})}" class="delete">Supprimer</a>
             </td>
         </tr>
         </tbody>
