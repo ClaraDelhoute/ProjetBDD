@@ -121,6 +121,10 @@ Interface de gestion principale : http://localhost:8083
 
 Interface d'archivage et de recherche : http://localhost:8081/dashboard
 
+# Comment passer une commande 
+
+⚠️ Créer votre compte en tant que membre client -> La bdd ne possède aucun vendeur, créer un membre actif depuis l'interface d'ajout un membrre puis créer un matériel et ensuite vous pourrez passer commande ⚠️
+
 # Améliorations Futures
 
 - Ajout de la sécurité sur les connexions utilisateurs
