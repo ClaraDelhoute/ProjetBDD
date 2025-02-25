@@ -49,8 +49,10 @@ public class MembreController {
     @GetMapping("/membre-update/{id}")
     public String getMembreUpdate(@PathVariable("id") String id, Model model) {
         Membre membre = membreService.getMembreByIdMembre(id);
-        if(membre != null) {
+        List<Groupe> groupes = groupeService.getAllGroupes();
+        if(membre != null && groupes != null) {
             model.addAttribute("membre", membre);
+            model.addAttribute("groupes",groupes);
         }
         return  "membre-update";
     }

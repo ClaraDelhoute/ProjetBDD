@@ -50,7 +50,7 @@ public class MaterielServiceImpl implements MaterielService{
         return null;
     }
 
-    public List<Materiel> getMaterielsByIds(List<Long> materielIds) {
+    public List<Materiel> getMaterielsByIds(List<String> materielIds) {
         return materielRepository.findByIdMaterielIn(materielIds);
     }
 }

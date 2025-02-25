@@ -4,6 +4,8 @@ import org.example.classes.Commande;
 import org.example.repository.CommandeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.example.classes.Materiel;
+import org.example.repository.MaterielRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +13,8 @@ import java.util.Optional;
 @Service
 public class CommandeServiceImpl implements CommandeService {
     private final CommandeRepository commandeRepository;
+    @Autowired
+    private MaterielRepository materielRepository;
 
     @Autowired
     public CommandeServiceImpl(CommandeRepository commandeRepository) {
@@ -39,5 +43,10 @@ public class CommandeServiceImpl implements CommandeService {
     @Override
     public List<Commande> getAllCommandes() {
         return commandeRepository.findAll();
+    }
+
+    @Override
+    public List<Materiel> getMaterielsByIds(List<String> materielIds) {
+        return materielRepository.findByIdMaterielIn(materielIds);
     }
 }
