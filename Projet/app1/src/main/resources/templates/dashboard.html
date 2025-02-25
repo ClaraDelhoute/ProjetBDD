@@ -4,7 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - Commandes</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* Style identique pour le tableau */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    table th {
+      background-color: #5cb85c;
+      color: white;
+    }
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    table tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
 </head>
 <body>
 <div class="container mt-5">
@@ -35,18 +57,18 @@
     <tr>
       <th>ID Commande</th>
       <th>Date de Commande</th>
-      <th>Client</th>
-      <th>Vendeur</th>
+      <th>Membre</th>
       <th>Total</th>
+      <th>Code Postal</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="commande : ${commandes}">
-      <td th:text="${commande.idCommande}"></td>
-      <td th:text="${commande.dateCommande}"></td>
-      <td th:text="${commande.commandesAchats.nom} + ' ' + ${commande.commandesAchats.prenom}"></td>
-      <td th:text="${commande.commandesVentes.nom} + ' ' + ${commande.commandesVentes.prenom}"></td>
-      <td th:text="${commande.prixTotal}"></td>
+      <td th:text="${commande != null ? commande.idCommande : ''}"></td>
+      <td th:text="${commande != null ? commande.date : ''}"></td>
+      <td th:text="${commande != null and commande.idMembre != null ? commande.idMembre.nom + ' ' + commande.idMembre.prenom : ''}"></td>
+      <td th:text="${commande != null ? commande.prixTotal : ''}"></td>
+      <td th:text="${commande != null ? commande.codePostal : ''}"></td>
     </tr>
     </tbody>
   </table>

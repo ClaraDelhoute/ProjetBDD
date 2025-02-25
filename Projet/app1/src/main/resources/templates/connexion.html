@@ -10,14 +10,6 @@
             padding: 0;
             background-color: #f4f4f9;
         }
-        .container {
-            width: 50%;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
-        }
         h1 {
             text-align: center;
             color: #333;
@@ -53,15 +45,18 @@
 <body>
 <div class="container">
     <h1>Connexion membre</h1>
-<form action ="isOk" method="post">
-    <label for="login"> Login utilisateur : </label>
-    <input type="text" name="login" id="login">
+    <form action ="isOk" method="post">
+        <input type="hidden" name="_method" value="GET">
 
-    <label for="password"> Mot de passe : </label>
-    <input type="password" name="password" id="password">
+        <label for="username"> Nom : </label>
+        <input type="text" name="username" id="username">
 
-    <button type="submit">Connexion</button>
-</form>
+        <label for="password"> Mot de passe : </label>
+        <input type="password" name="password" id="password">
+
+        <button type="submit">Connexion</button>
+
+    </form>
 </div>
 </body>
 </html>

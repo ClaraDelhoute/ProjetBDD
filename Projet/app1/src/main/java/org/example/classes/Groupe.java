@@ -8,10 +8,11 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.List;
 
-@Document(collection = "groupe")
+@Document(collection = "groupes")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

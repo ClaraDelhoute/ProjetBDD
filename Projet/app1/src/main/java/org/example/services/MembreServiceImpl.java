@@ -1,10 +1,13 @@
 package org.example.services;
 
 import org.example.classes.Membre;
+import org.example.classes.TypeMembre;
 import org.example.repository.MembreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -35,7 +38,7 @@ public class MembreServiceImpl implements MembreService {
 
     @Override
     public Membre getMembreByIdMembre(String id) {
-         return membreRepository.getMembreByIdMembre(id);
+        return membreRepository.getMembreByIdMembre(id);
     }
 
     @Override
@@ -46,6 +49,26 @@ public class MembreServiceImpl implements MembreService {
     @Override
     public Membre getMembreByNomAndPassword(String nom,String password){
         return membreRepository.getMembreByNomAndPassword(nom,password);
+    }
+
+    @Override
+    public List<Membre> getMembresClients() {
+        List<Membre> membresClients = new ArrayList<>();
+        membresClients = (List<Membre>) membreRepository.getMembreByTypeMembre(TypeMembre.CLIENT);
+        if(!CollectionUtils.isEmpty(membresClients)){
+            return membresClients;
+        }
+        return null;
+    }
+
+    @Override
+    public List<Membre> getMembresVendeur() {
+        List<Membre> membresClients = new ArrayList<>();
+        membresClients = (List<Membre>) membreRepository.getMembreByTypeMembre(TypeMembre.ACTIF);
+        if(!CollectionUtils.isEmpty(membresClients)){
+            return membresClients;
+        }
+        return null;
     }
 
 

@@ -27,7 +27,7 @@ public class Membre {
 
     private String email;
 
-    private TypeMembre type; 
+    private TypeMembre typeMembre;
 
     private String login;
     private String password;

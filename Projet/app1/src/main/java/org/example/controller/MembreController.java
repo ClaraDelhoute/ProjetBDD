@@ -5,13 +5,14 @@ import org.example.classes.Membre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 import org.example.services.GroupeService;
 import org.example.services.MembreService;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 public class MembreController {
@@ -38,17 +39,18 @@ public class MembreController {
     @GetMapping("/membres")
     public String membres(Model model) {
         List<Membre> membres = membreService.getAllMembre();
+        if (membres != null) {
+            membres = membres.stream().filter(Objects::nonNull).collect(Collectors.toList());
+        }
         model.addAttribute("membres", membres);
         return "membres";
     }
 
     @GetMapping("/membre-update/{id}")
     public String getMembreUpdate(@PathVariable("id") String id, Model model) {
-        List<Groupe> groupes = groupeService.getAllGroupes();
         Membre membre = membreService.getMembreByIdMembre(id);
-        if(membre != null && !CollectionUtils.isEmpty(groupes)) {
+        if(membre != null) {
             model.addAttribute("membre", membre);
-            model.addAttribute("groupes", groupes);
         }
         return  "membre-update";
     }
@@ -70,7 +72,7 @@ public class MembreController {
                     membreExistant.setGroupe(groupe);
                 }
             }
-            membreExistant.setType(membre.getType());
+            membreExistant.setTypeMembre(membre.getTypeMembre());
             membreService.updateMembre(membreExistant);
         } else {
             System.out.println("Membre non existant");

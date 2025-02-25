@@ -19,14 +19,16 @@ public class Commande {
     private String idCommande;
 
     @DBRef
-    private Membre commandesVentes;
+    private Membre idMembre;
 
-    @DBRef
-    private Membre commandesAchats;
+    /*@DBRef
+    private Membre commandesAchatsId;*/
 
-    private LocalDateTime dateCommande;
+    private LocalDateTime date;
 
     private List<Materiel> liste;
 
     private Double prixTotal;
+
+    private Integer codePostal;
 }

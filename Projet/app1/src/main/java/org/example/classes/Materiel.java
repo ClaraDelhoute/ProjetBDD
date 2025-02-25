@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collection="materiel")
+@Document(collection="materiels")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +18,7 @@ public class Materiel {
     private String idMateriel;
     private String numeroSerie;
     private String modele;
-    private Type type;
+    private TypeMateriel type;
     private String marque;
     private Double prix;
 
