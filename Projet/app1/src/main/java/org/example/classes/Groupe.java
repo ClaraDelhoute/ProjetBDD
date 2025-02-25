@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Groupe {
     @Id
-    private Integer idGroupe;
+    private String idGroupe;
     private String numero;
     private String nom;
     private String ville;
