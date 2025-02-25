@@ -117,9 +117,12 @@ docker-compose up -d
 
 Accédez aux applications via :
 
+
 Interface de gestion principale : http://localhost:8083
 
 Interface d'archivage et de recherche : http://localhost:8081/ (nécessite de se connecter avec un compte créé au préalable dans l'interface de gestion principale).
+
+Pour se connecter, il faut créer un compte, puis se connecter en utilisant comme login le nom du membre et le mot de passe lié au compte.
 
 # Comment passer une commande 
 
