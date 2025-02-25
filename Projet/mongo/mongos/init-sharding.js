@@ -25,7 +25,7 @@ db.createUser({
 // Création de la collection "groupe"
 db.createCollection("groupes");
 db.createCollection("membres");
-db.createCollection("materiel");
+db.createCollection("materiels");
 db.createCollection("commande");
 
 /*
@@ -38,8 +38,8 @@ db.groupes.createIndex({ codePostal: 1 });
 
 db.membres.createIndex({ codePostal: 1 });
 
-db.materiel.createIndex({ codePostal: 1 });
-db.materiel.createIndex({ idGroupe: 1 });
+db.materiels.createIndex({ codePostal: 1 });
+db.materiels.createIndex({ idGroupe: 1 });
 
 db.commande.createIndex({ codePostal: 1 });
 db.commande.createIndex({ idMembre: 1 });
@@ -57,7 +57,7 @@ sh.enableSharding("mydatabase");
 // Activation du sharding
 sh.shardCollection("mydatabase.groupes", { codePostal: 1 });
 sh.shardCollection("mydatabase.membres", { codePostal: 1 });
-sh.shardCollection("mydatabase.materiel", { codePostal: 1 });
+sh.shardCollection("mydatabase.materiels", { codePostal: 1 });
 sh.shardCollection("mydatabase.commande", { codePostal: 1 });
 
 // Configuration des plages de données pour les shards
@@ -69,9 +69,9 @@ sh.splitAt("mydatabase.membres", { codePostal: 50000 });
 sh.moveChunk("mydatabase.membres", { codePostal: 0 }, "shard0");
 sh.moveChunk("mydatabase.membres", { codePostal: 50001 }, "shard1");
 
-sh.splitAt("mydatabase.materiel", { codePostal: 50000 });
-sh.moveChunk("mydatabase.materiel", { codePostal: 0 }, "shard0");
-sh.moveChunk("mydatabase.materiel", { codePostal: 50001 }, "shard1");
+sh.splitAt("mydatabase.materiels", { codePostal: 50000 });
+sh.moveChunk("mydatabase.materiels", { codePostal: 0 }, "shard0");
+sh.moveChunk("mydatabase.materiels", { codePostal: 50001 }, "shard1");
 
 sh.splitAt("mydatabase.commande", { codePostal: 50000 });
 sh.moveChunk("mydatabase.commande", { codePostal: 0 }, "shard0");
@@ -103,13 +103,13 @@ db.membres.insertMany([
     { _id: ObjectId('67800070c5f2fb32c3f37bc5'), nom: "Legrand", prenom: "Alice", adresse: "50 Rue de Lille", ville: "Lille", codePostal: 59000, email: "alice.legrand@example.com", typeMembre: "CLIENT", password: "aliceKey202", confirmPassword: "aliceKey202", _class: "org.example.classes.Membre" }
 ]);
 
-// Insertion des données dans "materiel"
-db.materiel.insertMany([
-    { idMateriel: 1, numeroSerie: "123456", marque: "Dell", modele: "Inspiron", type: "Laptop", prix: 500.0, idGroupe: 1, codePostal: 75001 },
-    { idMateriel: 2, numeroSerie: "789012", marque: "HP", modele: "Pavilion", type: "Laptop", prix: 600.0, idGroupe: 2, codePostal: 69000 },
-    { idMateriel: 3, numeroSerie: "345678", marque: "Lenovo", modele: "ThinkPad", type: "Laptop", prix: 550.0, idGroupe: 3, codePostal: 6000 },
-    { idMateriel: 4, numeroSerie: "901234", marque: "Apple", modele: "MacBook", type: "Laptop", prix: 1200.0, idGroupe: 4, codePostal: 14000 },
-    { idMateriel: 5, numeroSerie: "567890", marque: "Asus", modele: "VivoBook", type: "Laptop", prix: 700.0, idGroupe: 5, codePostal: 59000 },
+// Insertion des données dans "materiels"
+db.materiels.insertMany([
+    { _id: ObjectId(), numeroSerie: "123456", modele: "Inspiron", type: "LAPTOP", marque: "Dell", prix: 500, _class: "org.example.classes.Materiel" },
+    { _id: ObjectId(), numeroSerie: "789012", modele: "Pavilion", type: "LAPTOP", marque: "HP", prix: 600, _class: "org.example.classes.Materiel" },
+    { _id: ObjectId(), numeroSerie: "345678", modele: "ThinkPad", type: "LAPTOP", marque: "Lenovo", prix: 550, _class: "org.example.classes.Materiel" },
+    { _id: ObjectId(), numeroSerie: "901234", modele: "MacBook", type: "LAPTOP", marque: "Apple", prix: 1200, _class: "org.example.classes.Materiel" },
+    { _id: ObjectId(), numeroSerie: "567890", modele: "VivoBook", type: "LAPTOP", marque: "Asus", prix: 700, _class: "org.example.classes.Materiel" }
 ]);
 
 // Insertion des données dans "commande"
