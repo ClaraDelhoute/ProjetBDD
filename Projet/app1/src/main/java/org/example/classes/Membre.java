@@ -9,14 +9,14 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Document(collection = "membres") // Indique le nom de la collection MongoDB
+@Document(collection = "membres")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Membre {
 
     @Id
-    private Long idMembre; // MongoDB utilise généralement String ou ObjectId pour l'ID
+    private String idMembre;
 
     private String nom;
     private String prenom;
@@ -27,7 +27,7 @@ public class Membre {
 
     private String email;
 
-    private TypeMembre type; // L'énumération peut être gérée sans l'annotation @Enumerated
+    private TypeMembre type; 
 
     private String login;
     private String password;

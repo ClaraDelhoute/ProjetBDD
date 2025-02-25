@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface MembreService {
     List<Membre> getAllMembre();
-    Membre getMembreByIdMembre(Long id);
+    Membre getMembreByIdMembre(String id);
     void saveMembre(Membre membre);
     void updateMembre(Membre membre);
     void deleteMembre(Membre membre);

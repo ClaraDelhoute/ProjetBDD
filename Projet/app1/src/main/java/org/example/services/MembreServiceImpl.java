@@ -34,7 +34,7 @@ public class MembreServiceImpl implements MembreService {
     }
 
     @Override
-    public Membre getMembreByIdMembre(Long id) {
+    public Membre getMembreByIdMembre(String id) {
          return membreRepository.getMembreByIdMembre(id);
     }
 
