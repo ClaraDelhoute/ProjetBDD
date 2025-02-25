@@ -43,14 +43,6 @@ public class CommandeController {
         return "dashboard";
     }
 
-    @GetMapping("/get-commandes")
-    public String getAllCommandes(Model model) {
-        List<Commande> commandes = commandeService.findAll();
-        System.out.println(commandes);
-        model.addAttribute("commandes", commandes);
-        return "dashboard";
-    }
-
     // Afficher toutes les commandes
     @GetMapping("/dashboard")
     public String getAllCommandes(Model model) {

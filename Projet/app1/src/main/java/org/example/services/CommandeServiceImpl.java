@@ -88,7 +88,6 @@ public class CommandeServiceImpl implements CommandeService {
         if (membreName != null && !membreName.trim().isEmpty()) {
             Membre m = membreService.getMembreByNom(membreName);
             if (m != null) {
-                // Le DBRef est stocké sous la forme d'un document contenant "$id"
                 query.addCriteria(Criteria.where("idMembre.$id").is(m.getIdMembre()));
             } else {
                 // Aucun membre correspondant, retourner une liste vide.
