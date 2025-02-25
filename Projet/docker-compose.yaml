@@ -141,7 +141,7 @@ services:
       context: ./app1
       dockerfile: Dockerfile
     ports:
-      - "8082:8082"
+      - "8081:8081"
     depends_on:
       - mongos-router0
       - mongos-router1
