@@ -47,7 +47,7 @@ public class MembreController {
     }
 
     @GetMapping("/membre-update/{id}")
-    public String getMembreUpdate(@PathVariable("id") Long id, Model model) {
+    public String getMembreUpdate(@PathVariable("id") String id, Model model) {
         Membre membre = membreService.getMembreByIdMembre(id);
         if(membre != null) {
             model.addAttribute("membre", membre);
@@ -56,7 +56,7 @@ public class MembreController {
     }
 
     @PutMapping("/membre-update-go/{id}")
-    public String updateMembre(@PathVariable("id") Long id,@ModelAttribute Membre membre, Model model) {
+    public String updateMembre(@PathVariable("id") String id,@ModelAttribute Membre membre, Model model) {
         Membre membreExistant = membreService.getMembreByIdMembre(id);
         if(membreExistant != null) {
             membreExistant.setNom(membre.getNom());
@@ -82,7 +82,7 @@ public class MembreController {
     }
 
     @GetMapping("/membre-delete/{id}")
-    public String deleteMembre(@PathVariable("id") Long id,@ModelAttribute Membre membre, Model model) {
+    public String deleteMembre(@PathVariable("id") String id,@ModelAttribute Membre membre, Model model) {
         Membre membreExistant = membreService.getMembreByIdMembre(id);
         if(membreExistant != null) {
             membreService.deleteMembre(membreExistant);

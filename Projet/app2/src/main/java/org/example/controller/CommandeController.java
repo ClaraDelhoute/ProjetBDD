@@ -57,8 +57,8 @@ public class CommandeController {
     }
 
     @PostMapping("/shop")
-    public String shop(@RequestParam Long clientId,
-                       @RequestParam Long vendeurId,
+    public String shop(@RequestParam String clientId,
+                       @RequestParam String vendeurId,
                        @RequestParam List<Long> materielIds,
                        @RequestParam Double prixTotal) {
 
