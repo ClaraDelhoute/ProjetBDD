@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Document(collection = "commande")
+@Document(collection = "commandes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
