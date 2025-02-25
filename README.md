@@ -133,6 +133,12 @@ Interface d'archivage et de recherche : http://localhost:8081/dashboard
 
 - Interface utilisateur améliorée
 
+# Fonctionnalités manquantes 
+
+- Dans l'application dashboard des commandes (étape 4), seul la recherche par date est fonctionnelle.
+- Un matériel n'est pas lié à un groupe.
+- Le matériel et les commandes ne possèdent pas de champ code postal, il ne sont donc pas shardés sur les réplicats correspondants.
+
 # Conclusion
 
 Ce projet fournit une solution efficace et fiable pour la gestion des adhérents, du matériel et des commandes d'une association de reconditionnement informatique. L'utilisation de MongoDB en environnement Docker permet d'assurer la persistance et la disponibilité des données.
