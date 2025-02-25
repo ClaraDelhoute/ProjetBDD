@@ -10,4 +10,5 @@ FROM amazoncorretto:21.0.2-alpine3.19
 WORKDIR /app
 COPY --from=build-app1 /app1/target/*.jar /app/app1.jar
 EXPOSE 8082
+CMD sleep 15
 ENTRYPOINT ["java", "-jar", "/app/app1.jar"]
